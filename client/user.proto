@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "/pb";
+
+service UserService {
+  rpc GetAllUsers(Empty) returns (UsersList);
+  rpc GetUser(UserRequest) returns (User);
+}
+
+message UserRequest {
+  int32 id = 1;
+}
+
+message Empty {}
+
+message User {
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+}
+
+message UsersList {
+   repeated User users = 1;
+}
